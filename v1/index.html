@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DARUDA</title>
+<meta name="description" content="DARUDA DESIGN STUDIO — 주식회사 다루다. 건축 인테리어 기획·설계·시공·브랜딩·제작 가구.">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main class="main">
+  <div class="slides" aria-hidden="true"></div>
+
+  <div class="main-ui">
+    <div class="logo-wrap">
+      <h1 class="logo"><a href="index.html">DARUDA</a></h1>
+      <p class="tagline" data-tagline></p>
+    </div>
+
+    <ul class="nav-main">
+      <li data-key="about"><span class="u-marker" aria-hidden="true">U</span><button type="button">about</button></li>
+      <li data-key="archive"><span class="u-marker" aria-hidden="true">U</span><a href="archive.html">archive</a></li>
+      <li data-key="press"><span class="u-marker" aria-hidden="true">U</span><button type="button">press</button></li>
+      <li data-key="contact"><span class="u-marker" aria-hidden="true">U</span><button type="button">contact</button></li>
+    </ul>
+
+    <!-- about -->
+    <div class="overlay" id="ov-about" role="dialog" aria-label="about">
+      <button class="panel-close" type="button">close</button>
+      <div class="panel panel--about">
+        <h2 class="about-title"></h2>
+        <div class="about-lines"></div>
+      </div>
+    </div>
+
+    <!-- press -->
+    <div class="overlay" id="ov-press" role="dialog" aria-label="press">
+      <button class="panel-close" type="button">close</button>
+      <div class="panel panel--press">
+        <div class="press-list"></div>
+        <div class="press-detail"></div>
+      </div>
+    </div>
+
+    <!-- contact -->
+    <div class="overlay" id="ov-contact" role="dialog" aria-label="contact">
+      <button class="panel-close" type="button">close</button>
+      <div class="panel panel--contact">
+        <div class="contact-info"></div>
+        <div class="consult">
+          <span class="consult-label">consult</span>
+          <form class="consult-form" novalidate>
+            <div class="field"><label for="c-name">성함 :</label><input id="c-name" name="name" autocomplete="name"></div>
+            <div class="field"><label for="c-phone">연락처 :</label><input id="c-phone" name="phone" autocomplete="tel"></div>
+            <div class="field"><label for="c-msg">상담 내용 :</label></div>
+            <textarea id="c-msg" name="message" placeholder="문의하고 싶은 내용을 자유롭게 기재해 주세요."></textarea>
+            <span class="done" aria-live="polite"></span>
+            <button class="submit" type="submit">전송</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/data/site.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

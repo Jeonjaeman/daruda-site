@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DARUDA v3 레퍼런스 보드</title>
+<meta name="description" content="기획안의 공식을 버린, 전혀 다른 패러다임의 건축·디자인 스튜디오 웹사이트 레퍼런스와 v3 방향 제안">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root { --bg:#fff; --fg:#111; --mute:#777; --line:#e5e5e5; --soft:#f6f5f2; --accent:#d8341c; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#141414; --fg:#f2f2f2; --mute:#9a9a9a; --line:#2a2a2a; --soft:#1d1d1d; --accent:#ff6a4d; } }
+  :root[data-theme="dark"] { --bg:#141414; --fg:#f2f2f2; --mute:#9a9a9a; --line:#2a2a2a; --soft:#1d1d1d; --accent:#ff6a4d; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:"Pretendard Variable", Pretendard, system-ui, sans-serif; font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 16px; }
+  header.top { padding:56px 0 24px; border-bottom:1px solid var(--line); }
+  h1 { font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0 0 8px; }
+  .lead { color:var(--mute); margin:0; max-width:780px; }
+  nav.toc { display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--mute); margin-top:22px; }
+  nav.toc a { text-decoration:none; } nav.toc a:hover { color:var(--fg); }
+  section { padding:48px 0 8px; }
+  h2 { font-size:21px; font-weight:700; letter-spacing:-.01em; margin:0 0 6px; }
+  .sub { color:var(--mute); margin:0 0 24px; }
+  h3 { font-size:16px; font-weight:600; margin:0; }
+  .num { display:inline-block; font-size:12px; font-weight:700; color:var(--accent); letter-spacing:.08em; margin-right:8px; }
+  .ref { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:22px; padding:26px 0; border-top:1px solid var(--line); align-items:start; }
+  .ref .shots { display:grid; gap:10px; }
+  .ref .shots.two { grid-template-columns:1fr 1fr; }
+  .ref img { width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top; border:1px solid var(--line); background:var(--soft); display:block; }
+  .ref .meta .tag { display:inline-block; font-size:11px; font-weight:600; letter-spacing:.04em; padding:2px 8px; border:1px solid var(--line); border-radius:3px; margin-right:6px; color:var(--mute); }
+  .ref .meta .url { font-size:13px; color:var(--mute); margin:4px 0 12px; word-break:break-all; }
+  .ref ul { margin:8px 0 0; padding-left:18px; font-size:14px; }
+  .ref ul li { margin:3px 0; }
+  .ref .take { font-weight:600; font-size:13px; letter-spacing:.02em; margin-top:12px; color:var(--accent); }
+  .ref .risk { color:var(--mute); font-size:13px; margin-top:6px; }
+  .plan { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+  .plan .p { border:1px solid var(--line); border-radius:6px; padding:18px 20px; }
+  .plan .p.pick { border-color:var(--accent); }
+  .plan .p .k { font-size:12px; color:var(--accent); font-weight:600; letter-spacing:.04em; }
+  .plan .p h3 { margin:4px 0 8px; }
+  .plan .p ol { padding-left:18px; margin:8px 0 0; font-size:14px; }
+  .plan .p .src { font-size:12px; color:var(--mute); margin-top:10px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin-top:10px; }
+  th, td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; color:var(--mute); font-weight:600; }
+  footer { padding:40px 0 60px; color:var(--mute); font-size:13px; border-top:1px solid var(--line); margin-top:40px; }
+  @media (max-width: 800px) { .ref { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <h1>DARUDA v3 레퍼런스 보드 — 기획안을 벗어난 사이트들</h1>
+  <p class="lead">"풀이미지 + 메뉴 + 그리드"라는 공식 자체를 버린 건축·디자인 스튜디오 사이트를 패러다임별로 모았습니다. 각 사례마다 "무엇을 버렸고, 대신 무엇으로 길을 찾게 하는지"를 적었고, 마지막에 DARUDA v3로 옮길 수 있는 방향 네 가지를 제안합니다. 캡처는 2026-10-21 실제 화면(1,800px 폭)입니다.</p>
+  <nav class="toc">
+    <a href="#p1">1 거대 타이포 메뉴</a><a href="#p2">2 썸네일 벽·아이콘 카탈로그</a><a href="#p3">3 빈 화면·커서 반응</a><a href="#p4">4 책·문서 구조</a><a href="#p5">5 흩어진 그리드·무한 캔버스</a><a href="#p6">6 태그 칩 검색</a><a href="#p7">7 문장이 메뉴</a><a href="#p8">8 3D 시네마틱</a><a href="#v3">v3 방향</a>
+  </nav>
+</header>
+
+<section id="p1">
+  <h2><span class="num">01</span>거대 타이포가 곧 메뉴 — 사진을 첫 화면에서 치운다</h2>
+  <p class="sub">첫 화면에 사진이 없다. 네 단어가 화면 폭을 다 쓰고, 콘텐츠는 가로로 25,000px 이어진다.</p>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/oma.jpg" alt="OMA 첫 화면" loading="lazy"><img src="shots-v3/oma-x.jpg" alt="OMA 가로 스크롤" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">로테르담</span><span class="tag">건축</span><span class="tag">★ 가장 급진적</span>
+      <h3>OMA</h3><div class="url">oma.com</div>
+      <ul>
+        <li>화면 상단에 <b>OMA · OFFICE · WORK · SEARCH</b> 네 단어가 거대한 Arial Bold로. SEARCH만 아웃라인. 이것이 메뉴의 전부.</li>
+        <li>배경은 블러 처리된 사진 한 장. 그 위에 흰 박스(프로젝트명), 빨간 테두리 박스(뉴스)가 흩어져 있고, <b>가로 스크롤</b>로 끝없이 이어집니다.</li>
+        <li>버린 것: 썸네일 그리드, 상단 바, 세로 스크롤. 대신 얻은 것: 한 번 보면 잊히지 않는 첫인상, 모든 콘텐츠가 '한 장의 긴 벽'.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → DARUDA / ABOUT / ARCHIVE / PRESS / CONTACT 다섯 단어를 화면 폭에 꽉 채우고, 기획안의 '흰 사각형'을 OMA의 흰 박스처럼 사진 위에 흩뿌린다.</div>
+      <div class="risk">위험: 모바일에서 가로 스크롤은 세로로 바꿔야 하고, 첫 방문자에게 "어디를 눌러야 하나"가 2초쯤 걸린다.</div>
+    </div>
+  </article>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/soa.jpg" alt="SoA 첫 화면" loading="lazy"><img src="shots-v3/soa-scroll.jpg" alt="SoA 다른 상태" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">서울</span><span class="tag">건축</span><span class="tag">국내</span>
+      <h3>Society of Architecture (SoA)</h3><div class="url">societyofarchitecture.com</div>
+      <ul>
+        <li>첫 화면이 <b>"(Society) of Architecture" 글자뿐</b>. 새로고침할 때마다 글자 크기·반복 패턴이 바뀌는 아이덴티티 페이지(new_identity-2, -6 …)로 랜딩합니다.</li>
+        <li>사진·메뉴·설명 전부 없음. 로고타입 자체가 포스터이고, 클릭해야 비로소 사이트로 들어갑니다.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 'DARUDA'를 화면에 반복·변주하는 랜딩 인트로. v1의 'U' 마커·아웃라인 P/A 아이디어를 여기서 제대로 쓸 수 있다.</div>
+    </div>
+  </article>
+</section>
+
+<section id="p2">
+  <h2><span class="num">02</span>썸네일 벽 · 아이콘 카탈로그 — 모든 프로젝트를 한 화면에</h2>
+  <p class="sub">"대표작 몇 개"가 아니라 전체 아카이브를 통째로 보여준다. 줌으로 밀도를 조절한다.</p>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/hdm.jpg" alt="Herzog & de Meuron 첫 화면" loading="lazy"><img src="shots-v3/hdm-projects.jpg" alt="Herzog & de Meuron Projects 썸네일 벽" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">바젤</span><span class="tag">건축</span><span class="tag">★ 아카이브형 1순위</span>
+      <h3>Herzog &amp; de Meuron</h3><div class="url">herzogdemeuron.com</div>
+      <ul>
+        <li>Projects 페이지: 수백 개 프로젝트가 <b>작은 썸네일로 빼곡한 벽</b>. 하단 가운데 <b>− / +</b> 버튼으로 밀도를 바꿉니다(컨택트 시트처럼).</li>
+        <li>첫 화면은 둥근 <b>태그 칩</b>(News, Projects, Practice… Interiors, Objects)과 "Search for something…" 한 줄. 메뉴가 곧 검색어.</li>
+        <li>폰트는 모노스페이스 계열. 사진보다 '정보 시스템'처럼 보이게 하는 선택.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 53개 완료 프로젝트를 전부 썸네일 벽으로. ( 53 ) 숫자가 그대로 화면이 된다. −/+ 줌, 칩 필터 living / commercial / 2024 / 2025.</div>
+    </div>
+  </article>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/big.jpg" alt="BIG 첫 화면" loading="lazy"><img src="shots-v3/big-scroll.jpg" alt="BIG 스크롤" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">코펜하겐</span><span class="tag">건축·인테리어</span>
+      <h3>BIG — Bjarke Ingels Group</h3><div class="url">big.dk</div>
+      <ul>
+        <li>화면 가운데 좁은 한 열. 각 프로젝트마다 <b>검정 바탕의 작은 다이어그램 아이콘 + 이름 + 도시</b>가 왼쪽에, 사진이 오른쪽에. 사진 없이 아이콘만으로도 프로젝트가 구분됩니다.</li>
+        <li>상단 메뉴는 분야(ARCHITECTURE / INTERIORS / LANDSCAPE / PLANNING / PRODUCTS)로만. '회사 소개'가 메뉴에 없음.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 프로젝트마다 평면 다이어그램 아이콘을 하나씩 그려 넣는다(제작 가구·브랜딩까지 하는 스튜디오의 강점이 아이콘으로 드러남).</div>
+    </div>
+  </article>
+</section>
+
+<section id="p3">
+  <h2><span class="num">03</span>빈 화면 + 커서 반응 — 아무것도 없는 첫 화면</h2>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/snark.jpg" alt="Snarkitecture 첫 화면" loading="lazy"><img src="shots-v3/snark-hover.jpg" alt="Snarkitecture 커서 반응" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">뉴욕</span><span class="tag">건축·설치</span>
+      <h3>Snarkitecture</h3><div class="url">snarkitecture.com</div>
+      <ul>
+        <li>첫 화면은 <b>흰 종이</b>. 하단 양끝에 Projects / Profile 두 단어뿐.</li>
+        <li>마우스를 움직이면 <b>글자(S, n …)가 커서를 따라 흩어지며</b> 나타납니다. 스크롤하면 그제야 프로젝트가 올라옵니다.</li>
+        <li>기획안의 "메뉴는 하단에"를 가장 극단으로 밀어붙인 형태. 대신 메뉴가 2개뿐이라 헷갈리지 않습니다.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 흰 화면 + 하단 양끝 archive / contact 두 단어. 커서를 따라 D·A·R·U·D·A 글자가 흩어진다. 사진은 스크롤 뒤에.</div>
+      <div class="risk">위험: 모바일은 커서가 없어 효과가 사라지므로 터치용 대체 연출이 필요.</div>
+    </div>
+  </article>
+  <article class="ref">
+    <div class="shots"><img src="shots-v3/mouthwash.jpg" alt="MOUTHWASH Studio" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">LA</span><span class="tag">디자인 스튜디오</span>
+      <h3>MOUTHWASH Studio</h3><div class="url">mouthwash.studio</div>
+      <ul>
+        <li>히어로가 사진이 아니라 <b>단어들이 크기를 바꾸며 떠다니는 텍스트 애니메이션</b>(연구 인용문). 그 아래 거대한 한 문장 소개.</li>
+        <li>메뉴는 Work / Studio / News / <b>Research</b> — 작업보다 '생각'을 앞세우는 구조.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 히어로에 재료명·공정명(oak, microcement, 목공, 철거…)이 떠다니게. 인테리어 회사가 '무엇을 다루는지'를 단어로 보여준다.</div>
+    </div>
+  </article>
+</section>
+
+<section id="p4">
+  <h2><span class="num">04</span>책 · 문서 구조 — 사이트를 출판물처럼</h2>
+  <p class="sub">press가 PDF·스캔본이라면 사이트 전체를 '책'으로 만드는 쪽이 오히려 일관됩니다.</p>
+  <article class="ref">
+    <div class="shots"><img src="shots-v3/formafantasma.jpg" alt="Formafantasma" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">밀라노·로테르담</span><span class="tag">디자인 리서치</span><span class="tag">★ 출판물형 1순위</span>
+      <h3>Formafantasma</h3><div class="url">formafantasma.com</div>
+      <ul>
+        <li>첫 화면이 <b>PREFACE(서문)</b>. 세리프 본문 한 단락 뒤에 <b>TABLE OF CONTENTS(목차)</b>. 메뉴는 Studio / Works / Upcoming 파란 밑줄 텍스트.</li>
+        <li>사진은 목차를 지나야 나옵니다. 기본 서체(Times 계열)와 파란 링크 — 브라우저 날것 그대로의 '브루탈리즘'.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 서문(about) → 목차(archive 목록: 번호·제목·연도·쪽수) → 각 장(프로젝트) → 부록(press 스캔본·PDF). press 자료 형식과 정확히 맞는 구조.</div>
+    </div>
+  </article>
+  <article class="ref">
+    <div class="shots"><img src="shots-v3/fujimoto.jpg" alt="Sou Fujimoto Architects" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">도쿄·파리</span><span class="tag">건축</span>
+      <h3>Sou Fujimoto Architects</h3><div class="url">sou-fujimoto.net</div>
+      <ul>
+        <li><b>레터헤드(편지지)</b>처럼 생긴 홈. 왼쪽에 사무소명·주소·전화, 가운데 공지문, 오른쪽 링크. 세계적 사무소인데 사진이 한 장도 없습니다.</li>
+        <li>'회사 안내문'을 사이트로 옮긴 극단적 문서형.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → contact를 첫 화면으로. 기획안의 '로고 옆 회사·사업자번호·저작권' 세 줄이 여기서는 주인공이 된다.</div>
+    </div>
+  </article>
+</section>
+
+<section id="p5">
+  <h2><span class="num">05</span>흩어진 그리드 · 무한 캔버스 — 드래그로 돌아다닌다</h2>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/studiofreight.jpg" alt="Studio Freight 홈" loading="lazy"><img src="shots-v3/aeon.jpg" alt="Studio Freight Aeon 무한 캔버스" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">오하이오</span><span class="tag">디자인 스튜디오</span>
+      <h3>Studio Freight — Home / Aeon</h3><div class="url">studiofreight.com · studiofreight.com/aeon · <a href="https://mobbin.com/sites/sections/e17cb69f-b5cd-4aa4-90ca-82838a400641">Mobbin 섹션</a></div>
+      <ul>
+        <li>홈: 썸네일이 <b>격자에서 군데군데 비워진 채</b> 흩어져 있고 가운데 "Moving Missions Forward" 한 줄. 빈칸이 리듬을 만듭니다.</li>
+        <li>Aeon: 검정 배경에 <b>A · E · O · N</b> 네 글자를 화면 네 모서리에, 아래는 <b>드래그·스크롤로 끝없이 이동하는 캔버스</b>. 1X / 2X / ∞ 로 줌 단계 전환. (Mobbin에 "Drag or Scroll to Explore" 섹션으로 수록)</li>
+        <li>모노스페이스 메뉴 "Work, Info, News, Aeon" — 쉼표로 이은 한 줄 메뉴.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → archive를 무한 캔버스로. 완료 53 + 진행 4 프로젝트 사진을 캔버스에 뿌리고 드래그로 탐색, 줌 단계로 썸네일↔큰 사진 전환.</div>
+      <div class="risk">위험: 구현 난이도·성능. 모바일은 핀치 줌 처리 필요.</div>
+    </div>
+  </article>
+</section>
+
+<section id="p6">
+  <h2><span class="num">06</span>태그 칩 검색 — 메뉴 대신 '키워드'</h2>
+  <article class="ref">
+    <div class="shots"><img src="shots-v3/hdm.jpg" alt="Herzog & de Meuron 태그 칩" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">바젤</span>
+      <h3>Herzog &amp; de Meuron (첫 화면)</h3><div class="url">herzogdemeuron.com</div>
+      <ul>
+        <li>2열의 둥근 칩: 1열은 섹션(News, Projects, Practice, Exhibitions…), 2열은 주제(Sustainability, Sport, Interiors, Objects, Art Spaces…). 칩을 누르면 그 주제로 필터된 결과.</li>
+        <li>"→ Search for something…" 입력창이 메뉴 바로 아래. 사이트가 '브라우징'이 아니라 '검색' 중심.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → living / commercial / cafe / clinic / 제작 가구 / 브랜딩 / 천안 / 2025 같은 칩. 고객이 "카페 인테리어 한 적 있나?"를 한 번의 클릭으로 확인.</div>
+    </div>
+  </article>
+</section>
+
+<section id="p7">
+  <h2><span class="num">07</span>문장이 메뉴 — 한 줄 선언문에 링크를 심는다</h2>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/studiox.jpg" alt="Studio X 첫 화면" loading="lazy"><img src="shots-v3/studiox-scroll.jpg" alt="Studio X 프로젝트명 타이포" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">홍콩·싱가포르</span><span class="tag">상업 인테리어</span><span class="tag">Awwwards SOTD</span>
+      <h3>Studio X</h3><div class="url">thisisstudiox.com</div>
+      <ul>
+        <li>첫 화면: 어두운 사진 위에 세리프 한 문장 "We design high-performance commercial interiors for <u>retail</u>, <u>workplace</u>, and <u>food &amp; beverage</u>…" — <b>밑줄 친 단어가 곧 분류 링크</b>.</li>
+        <li>메뉴는 화면 하단 가운데 <b>떠 있는 알약(X 아이콘 · Menu · Start a Project)</b>. 상단 바 없음.</li>
+        <li>프로젝트 목록은 썸네일이 아니라 <b>큰 세리프 이름 나열</b>(Tea Chateau (HK), Mian Cart Noodle Bar (MO) …).</li>
+      </ul>
+      <div class="take">DARUDA 적용 → "다루다는 천안에서 <u>주거</u>와 <u>상업 공간</u>을 기획·설계·시공하고 <u>가구</u>를 만듭니다." 한 문장이 메뉴. 하단 알약에 '상담 신청'.</div>
+    </div>
+  </article>
+  <article class="ref">
+    <div class="shots"><img src="shots-v3/dsgn.jpg" alt="dsgn interior" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">말뫼</span><span class="tag">인테리어</span><span class="tag">Awwwards HM</span>
+      <h3>dsgn interior</h3><div class="url">dsgninterior.se</div>
+      <ul>
+        <li>풀스크린 영상 위에 소문자 두 줄 "designing interiors / connecting people". 메뉴 세 개(projects / dsgn archive / office). 좌하단에 메일·전화·주소가 상시 노출.</li>
+        <li>'dsgn archive'는 재활용 가구 아카이브 — 작업물 외의 콘텐츠를 메뉴에 둔 점이 독특.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 메뉴에 '제작 가구'나 '자재 아카이브' 같은 두 번째 콘텐츠 축을 둔다.</div>
+    </div>
+  </article>
+</section>
+
+<section id="p8">
+  <h2><span class="num">08</span>3D 시네마틱 — 사진 대신 모델을 걷는다</h2>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/arbor.jpg" alt="Belgrade Arbor 첫 화면" loading="lazy"><img src="shots-v3/arbor-2.jpg" alt="Belgrade Arbor Explore in 3D" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">베오그라드</span><span class="tag">Awwwards SOTD 2026-10</span>
+      <h3>Belgrade Arbor (Square43)</h3><div class="url">belgradearbor.rs/en</div>
+      <ul>
+        <li>Three.js로 만든 <b>파사드 3D 모델</b>이 스크롤에 따라 돌아가고, 상단 가운데 떠 있는 알약 바(MENU · 로고 · INQUIRE). "EXPLORE IN 3D" 버튼.</li>
+        <li>짙은 녹색 + 베이지 세리프. 사진이 거의 없고 렌더·모델이 주인공.</li>
+      </ul>
+      <div class="take">DARUDA 적용 → 대표 프로젝트 한 곳(예: 쇼룸)을 3D로 스캔해 걷게 한다. 시공사가 '완성된 공간'을 가장 설득력 있게 보여주는 방법.</div>
+      <div class="risk">위험: 제작비·기간이 다른 안의 2~3배. 3D 스캔 또는 모델링 자료가 있어야 함.</div>
+    </div>
+  </article>
+  <article class="ref">
+    <div class="shots two"><img src="shots-v3/kononenko.jpg" alt="Kononenko 첫 화면" loading="lazy"><img src="shots-v3/kononenko-2.jpg" alt="Kononenko 스크롤" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">Awwwards SOTD 2026-08</span>
+      <h3>Kononenko Architectural Bureau</h3><div class="url">kononenkogroup.com</div>
+      <ul>
+        <li>풀블리드 렌더 위에 좌하단 거대한 두 줄 로고타입, 우상단 "Index, Work, About, Contact" 쉼표 메뉴. 스크롤하면 화면 폭을 넘는 "Clarity &amp; Creativity".</li>
+        <li>급진적이라기보다 '크기'로 승부하는 쪽. v2와 v3 사이의 중간값.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<section id="v3">
+  <h2>v3 방향 제안 — 기획안을 버리고 고르는 네 가지</h2>
+  <p class="sub">하나를 고르면 그 패러다임으로 v3 프로토타입을 만듭니다. 각 안은 '첫 화면 → 작업 찾기 → 상세 → 문의'가 어떻게 바뀌는지로 적었습니다.</p>
+  <div class="plan">
+    <div class="p pick">
+      <div class="k">추천 C</div>
+      <h3>타이포 벽 + 가로 스크롤 (OMA · SoA)</h3>
+      <ol>
+        <li>첫 화면: DARUDA / ABOUT / ARCHIVE / PRESS / CONTACT 다섯 단어가 화면 폭을 채움. 사진은 블러 배경.</li>
+        <li>작업 찾기: 단어를 누르면 그 아래로 흰 박스(프로젝트명)·검정 박스(진행 중)가 가로로 이어지는 긴 벽. 마우스 휠이 가로 이동.</li>
+        <li>상세: 박스를 누르면 사진이 화면 가득, 다음 프로젝트로 계속 가로 이동.</li>
+        <li>문의: CONTACT 단어 아래 빨간 테두리 박스에 폼.</li>
+        <li>살리는 기획안 요소: 흰 사각형, 하단 소문자 메뉴 감각, 'U' 대신 단어 자체를 아웃라인으로.</li>
+      </ol>
+      <div class="src">모바일은 세로 스크롤로 전환. 난이도 중.</div>
+    </div>
+    <div class="p">
+      <div class="k">대안 D</div>
+      <h3>컨택트 시트 + 칩 필터 (H&amp;dM · BIG)</h3>
+      <ol>
+        <li>첫 화면: 57개 프로젝트 썸네일이 빼곡한 벽. 상단에 칩(living / commercial / cafe / clinic / furniture / 2024 / 2025 …).</li>
+        <li>작업 찾기: 칩을 누르면 벽이 줄어듦. −/+ 로 썸네일 크기 변경.</li>
+        <li>상세: 썸네일 클릭 → 사진 + 메타.</li>
+        <li>문의: 칩 줄 끝에 'contact' 칩.</li>
+      </ol>
+      <div class="src">사진이 많을수록 강해짐. 난이도 하~중.</div>
+    </div>
+    <div class="p">
+      <div class="k">대안 E</div>
+      <h3>출판물 구조 (Formafantasma)</h3>
+      <ol>
+        <li>첫 화면: 서문 한 단락(about 문장 그대로) + 목차.</li>
+        <li>작업 찾기: 목차 = 번호 · 프로젝트명 · 연도 · 쪽. 클릭하면 '장'으로.</li>
+        <li>상세: 장(chapter) 형식 — 큰 사진, 본문, 캡션. 다음 장으로 넘김.</li>
+        <li>press: 부록(appendix)에 매거진 스캔본·PDF를 그대로. 자료 형식과 가장 잘 맞음.</li>
+      </ol>
+      <div class="src">제작비 가장 낮음. 세리프 + 파란 링크의 날것 톤을 받아들여야 함.</div>
+    </div>
+    <div class="p">
+      <div class="k">대안 F</div>
+      <h3>빈 화면 + 커서 (Snarkitecture)</h3>
+      <ol>
+        <li>첫 화면: 흰 화면, 하단 양끝 archive / contact.</li>
+        <li>커서를 따라 D A R U D A 글자가 흩어지고, 스크롤하면 사진이 한 장씩.</li>
+        <li>상세·문의는 D안과 동일.</li>
+      </ol>
+      <div class="src">가장 '조용한' 급진. 모바일 대체 연출 필요.</div>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>기획안 요소</th><th>C 타이포 벽</th><th>D 컨택트 시트</th><th>E 출판물</th><th>F 빈 화면</th></tr></thead>
+    <tbody>
+      <tr><td>풀이미지 3초 슬라이드</td><td>블러 배경으로 격하</td><td>삭제</td><td>삭제</td><td>스크롤 뒤로</td></tr>
+      <tr><td>하단 메뉴 4개</td><td>거대 단어로 승격</td><td>칩으로 대체</td><td>목차로 대체</td><td>유지(2개)</td></tr>
+      <tr><td>흰 사각형 오버레이</td><td>흰 박스로 유지</td><td>삭제</td><td>삭제</td><td>삭제</td></tr>
+      <tr><td>P / A 아웃라인</td><td>단어 아웃라인으로</td><td>−/+ 줌 버튼</td><td>장 번호</td><td>커서 글자</td></tr>
+      <tr><td>마퀴</td><td>진행 중 박스 흐름</td><td>삭제</td><td>삭제</td><td>삭제</td></tr>
+      <tr><td>press 스캔·PDF</td><td>PRESS 단어 아래 벽</td><td>칩 'press'</td><td><b>부록으로 가장 자연스러움</b></td><td>스크롤 끝</td></tr>
+      <tr><td>관리자</td><td colspan="4">공통: 프로젝트·사진·press·문의. D는 칩(태그) 관리, E는 목차 순서 관리가 추가됨</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  캡처 출처: 각 사이트 공개 페이지(2026-10-21), Awwwards, Mobbin. 참고용으로만 사용하고 재배포하지 않습니다. 1·2순위 일반형 레퍼런스는 <a href="index.html">index.html</a>.
+</footer>
+</div>
+</body>
+</html>

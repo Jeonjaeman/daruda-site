@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DARUDA 레퍼런스 보드</title>
+<meta name="description" content="DARUDA 웹사이트 v2를 위한 인테리어·건축 스튜디오 사이트 레퍼런스와 v1 진단">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root { --bg:#fff; --fg:#111; --mute:#777; --line:#e5e5e5; --soft:#f6f5f2; --accent:#1a46ff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#141414; --fg:#f2f2f2; --mute:#9a9a9a; --line:#2a2a2a; --soft:#1d1d1d; --accent:#7f9bff; } }
+  :root[data-theme="dark"] { --bg:#141414; --fg:#f2f2f2; --mute:#9a9a9a; --line:#2a2a2a; --soft:#1d1d1d; --accent:#7f9bff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:"Pretendard Variable", Pretendard, system-ui, sans-serif; font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 16px; }
+  header.top { padding:56px 0 24px; border-bottom:1px solid var(--line); }
+  h1 { font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0 0 8px; }
+  .lead { color:var(--mute); margin:0; max-width:760px; }
+  nav.toc { display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--mute); margin-top:22px; }
+  nav.toc a { text-decoration:none; } nav.toc a:hover { color:var(--fg); }
+  section { padding:48px 0 8px; }
+  h2 { font-size:21px; font-weight:700; letter-spacing:-.01em; margin:0 0 6px; }
+  .sub { color:var(--mute); margin:0 0 24px; }
+  h3 { font-size:16px; font-weight:600; margin:0; }
+  .diag { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+  .diag .d { background:var(--soft); padding:18px 20px; border-radius:6px; }
+  .diag .d b { display:block; margin-bottom:4px; }
+  .diag .d p { margin:0; font-size:14px; color:var(--mute); }
+  .ref { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:22px; padding:26px 0; border-top:1px solid var(--line); align-items:start; }
+  .ref:first-of-type { border-top:0; }
+  .ref .shots { display:grid; gap:10px; }
+  .ref .shots.two { grid-template-columns:1fr 1fr; }
+  .ref img { width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top; border:1px solid var(--line); background:var(--soft); display:block; }
+  .ref .meta .tag { display:inline-block; font-size:11px; font-weight:600; letter-spacing:.04em; padding:2px 8px; border:1px solid var(--line); border-radius:3px; margin-right:6px; color:var(--mute); }
+  .ref .meta .url { font-size:13px; color:var(--mute); margin:4px 0 12px; word-break:break-all; }
+  .ref ul { margin:8px 0 0; padding-left:18px; font-size:14px; }
+  .ref ul li { margin:3px 0; }
+  .ref .take { font-weight:600; font-size:13px; letter-spacing:.02em; margin-top:12px; color:var(--accent); }
+  .ref .avoid { color:var(--mute); }
+  .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
+  .card { border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+  .card img { width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top; display:block; background:var(--soft); }
+  .card .b { padding:12px 14px 14px; font-size:14px; }
+  .card .b b { display:block; }
+  .card .b span { color:var(--mute); font-size:13px; }
+  .card .b a { font-size:12px; color:var(--mute); }
+  table { width:100%; border-collapse:collapse; font-size:14px; margin-top:10px; }
+  th, td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; color:var(--mute); font-weight:600; }
+  .plan { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+  .plan .p { border:1px solid var(--line); border-radius:6px; padding:18px 20px; }
+  .plan .p h3 { margin-bottom:6px; }
+  .plan .p ol { padding-left:18px; margin:8px 0 0; font-size:14px; }
+  .plan .p.pick { border-color:var(--accent); }
+  .plan .p .k { font-size:12px; color:var(--accent); font-weight:600; letter-spacing:.04em; }
+  footer { padding:40px 0 60px; color:var(--mute); font-size:13px; border-top:1px solid var(--line); margin-top:40px; }
+  @media (max-width: 800px) { .ref { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <h1>DARUDA 레퍼런스 보드</h1>
+  <p class="lead">"일반적인 인테리어 스튜디오 사이트의 뼈대를 갖추되, 한두 군데만 독특한" 사례를 모았습니다. v1의 어디가 이용자에게 낯선지 먼저 짚고, 그 문제를 각 레퍼런스가 어떻게 푸는지 적었습니다. 캡처는 2026-10-21 기준 실제 화면입니다.</p>
+  <nav class="toc">
+    <a href="#diag">v1 진단</a><a href="#tier1">1순위 레퍼런스</a><a href="#tier2">2순위</a><a href="#mobbin">Mobbin 구조 참고</a><a href="#avoid">반면교사</a><a href="#v2">v2 방향</a>
+  </nav>
+</header>
+
+<section id="diag">
+  <h2>v1이 낯선 이유 — 이용자 관점 5가지</h2>
+  <p class="sub">v1은 의뢰자 기획안을 그대로 옮긴 결과라 아래 지점에서 "이게 뭐지?"가 생깁니다.</p>
+  <div class="diag">
+    <div class="d"><b>1. 메뉴가 화면 맨 아래에 흩어져 있다</b><p>이용자는 로고 옆이나 오른쪽 상단에서 메뉴를 찾습니다. 하단 네 귀퉁이에 소문자로 흩어진 메뉴는 캡션처럼 읽혀 클릭 대상인지 모릅니다.</p></div>
+    <div class="d"><b>2. about·press·contact가 페이지가 아니라 '오버레이'</b><p>마우스를 올리기만 해도 흰 사각형이 튀어나오고, 주소(URL)도 바뀌지 않아 공유·뒤로가기가 안 됩니다. 모바일에서는 '오버'가 없어 동작이 달라집니다.</p></div>
+    <div class="d"><b>3. 'U' 마커, P / A 아웃라인 글자</b><p>로고의 U, archive의 거대한 P·A는 내부 사람에겐 의미가 있지만 처음 온 사람은 무엇을 뜻하는지 알 수 없고, ( 4 ) ( 53 ) 숫자는 설명이 없습니다.</p></div>
+    <div class="d"><b>4. 작업물에 닿기까지 3단계</b><p>메인 → archive → PROCESSING/ARCHIVING → LIVING/COMMERCIAL 행 → 프로젝트. 포트폴리오 사이트의 핵심인 "사진 보기"까지 클릭이 너무 많습니다.</p></div>
+    <div class="d"><b>5. 사진이 설명 없이 움직인다</b><p>메인 슬라이드에 프로젝트명이 없어 "이게 이 회사 작업인가, 분위기 사진인가"를 알 수 없습니다. stof·Norm은 사진마다 제목 한 줄을 붙입니다.</p></div>
+  </div>
+</section>
+
+<section id="tier1">
+  <h2>1순위 레퍼런스 — 일반적인 뼈대 + 독특한 한 수</h2>
+  <p class="sub">DARUDA 톤(흰 벽·대리석·굵은 로고·Pretendard)과 가까우면서, 상단 메뉴·작품 그리드·상세 페이지라는 통상 구조를 지킨 사이트입니다.</p>
+
+  <article class="ref">
+    <div class="shots two"><img src="shots/norm.jpg" alt="Norm Architects 메인" loading="lazy"><img src="shots/norm-arch.jpg" alt="Norm Architects 작품 목록" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">덴마크</span><span class="tag">건축·인테리어</span><span class="tag">★ DARUDA에 가장 가까움</span>
+      <h3>Norm Architects</h3><div class="url">normcph.com</div>
+      <ul>
+        <li>메인: 풀스크린 사진 슬라이드 + 사진 하단에 <b>프로젝트명과 한 줄 설명</b>, 아래 점(•) 인디케이터. 의뢰자가 원한 "풀이미지 무빙"을 유지하면서 사진에 이름이 붙습니다.</li>
+        <li>상단 바: 로고 왼쪽, 메뉴 가운데(ARCHITECTURE / DESIGN / CREATIVE / STUDIO / PRESS), 검색 오른쪽. 흰 글자가 사진 위에 얹혀 v1의 '색 전환' 아이디어와 같은 방식.</li>
+        <li>작품 목록: 미색 배경에 3열 그리드, 사진 아래 <b>제목 / 두 줄 설명 / 분류·용도·연도</b>. 세로로 'PROJECTS' 라벨을 옆에 세워 독특함을 줍니다.</li>
+      </ul>
+      <div class="take">가져올 것 → 메인 사진 캡션, 상단 바 구성, 미색 그리드 + 분류 태그(LIVING / COMMERCIAL / 연도)</div>
+      <div class="take avoid">피할 것 → 메뉴 항목 6개는 DARUDA에 과함. 4개로 유지.</div>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="shots"><img src="shots/wgnb.jpg" alt="WGNB 메인" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">서울</span><span class="tag">공간·건축·제품</span><span class="tag">★ 국내 1순위</span>
+      <h3>WGNB</h3><div class="url">wgnb.kr</div>
+      <ul>
+        <li>로고 + 5개 메뉴(project ▾ / people / contact / @instagram)라는 가장 평범한 상단 바.</li>
+        <li>독특한 한 수: 히어로가 좌·우 분할. 왼쪽에 <b>프로젝트명이 겹쳐 지나가는 타이포</b>와 설명, 오른쪽에 사진 슬라이드. 글자가 바뀌며 사진도 바뀝니다.</li>
+        <li>그 아래 바로 썸네일 행이 보여 "스크롤하면 작품이 나온다"가 즉시 전달됩니다.</li>
+        <li>project 메뉴를 space / architecture / product로 펼치는 드롭다운 — DARUDA의 LIVING / COMMERCIAL / PROCESSING을 이 자리에 넣을 수 있습니다.</li>
+      </ul>
+      <div class="take">가져올 것 → 히어로 분할(타이포 + 사진), 메뉴 드롭다운으로 분류 노출, 첫 화면에서 썸네일이 보이는 높이</div>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="shots"><img src="shots/fenomen.jpg" alt="Fenomen Space 메인" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">체코</span><span class="tag">건축</span>
+      <h3>Fenomen Space</h3><div class="url">fenomen.space</div>
+      <ul>
+        <li>가장 '일반적'인 구조의 모범: 로고 왼쪽, 메뉴 오른쪽(projects / awards / contact / 언어), 한 줄 슬로건, 3열 그리드, 사진 아래 제목.</li>
+        <li>독특한 점은 폰트 하나뿐(Roboto Condensed). 장식 없이도 콘덴스드 서체 때문에 기억에 남습니다.</li>
+        <li>호버 시 사진이 살짝 확대되는 것 외에 모션이 없어 로딩이 빠르고 모바일 대응이 쉽습니다.</li>
+      </ul>
+      <div class="take">가져올 것 → "메뉴 4개 + 그리드 + 제목" 기본형. DARUDA에서는 Pretendard 굵은 로고가 Fenomen의 콘덴스드 서체 역할.</div>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="shots two"><img src="shots/halleroed.jpg" alt="Halleroed 첫 화면" loading="lazy"><img src="shots/halleroed-scroll-2.jpg" alt="Halleroed 스크롤 후 상단 바" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">스톡홀름</span><span class="tag">인테리어(Acne Studios 등)</span>
+      <h3>Halleroed</h3><div class="url">halleroed.se</div>
+      <ul>
+        <li>첫 화면은 사진 한 장만. 스크롤하면 <b>Work / Halleroed / Contact</b> 세 단어가 상단에 나타나는 3점 바. 메뉴가 3개뿐이라 이용자가 헤매지 않습니다.</li>
+        <li>작품 목록은 사진 없이 <b>클라이언트 이름 + 도시</b>만 나열한 텍스트 인덱스(Acne Studios · Beijing, Sanlitun …). 사진은 클릭해야 보이는 역발상.</li>
+        <li>v1의 '하단 메뉴 4개 양끝 정렬'을 살리고 싶다면 이 사이트처럼 <b>상단 한 줄 양끝 정렬</b>로 올리는 게 답입니다.</li>
+      </ul>
+      <div class="take">가져올 것 → 메뉴를 상단 한 줄 양끝에 두는 배치, 텍스트 인덱스(PRESS 목록·ARCHIVING 전체 목록에 적합)</div>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="shots two"><img src="shots/stof.jpg" alt="stof 메인" loading="lazy"><img src="shots/stof-work.jpg" alt="stof works 상세" loading="lazy"></div>
+    <div class="meta">
+      <span class="tag">서울</span><span class="tag">의뢰자 지정</span>
+      <h3>stof.</h3><div class="url">stof.kr</div>
+      <ul>
+        <li>사진 위에 <b>로고 + 메뉴 + 슬로건 + 프로젝트명</b>이 한 줄로 얹히고, 사진 톤에 따라 글자색이 바뀝니다(의뢰자가 원한 기능의 원본).</li>
+        <li>works 상세: 상단 바(로고 / WORKS / 프로젝트명), 큰 여백, 좌측 설명문, 우측 <b>회색 라벨 : 검정 값</b> 메타(PROJECT / YEAR / LOCATION / AREA / MATERIALS / PHOTOGRAPHY). v1 project.html의 location/area/use를 이 형식으로 키우면 됩니다.</li>
+        <li>단, 메뉴가 화면 세로 중앙에 있어 처음 보면 찾기 어렵습니다. 이 점은 Norm·Halleroed처럼 상단으로 올리는 게 낫습니다.</li>
+      </ul>
+      <div class="take">가져올 것 → 톤에 따른 글자색 전환(v1 유지), 상세 메타 리스트 형식</div>
+    </div>
+  </article>
+</section>
+
+<section id="tier2">
+  <h2>2순위 — 부분 참고</h2>
+  <p class="sub">전체 구조보다 특정 장치 하나를 가져올 사이트.</p>
+  <div class="grid3">
+    <div class="card"><img src="shots/note.jpg" alt="Note Design Studio" loading="lazy"><div class="b"><b>Note Design Studio · 스톡홀름</b><span>세로 3분할 사진 패널 + 우상단 'Menu' 알약 버튼 + 파란 로고 텍스트. 메뉴를 숨겨도 버튼 하나는 눈에 띄게.</span><br><a href="https://notedesignstudio.se">notedesignstudio.se</a></div></div>
+    <div class="card"><img src="shots/studioilse.jpg" alt="Studioilse" loading="lazy"><div class="b"><b>Studioilse · 런던</b><span>풀이미지 + 가운데 로고타입 + 세리프 슬로건 "A frame for life." + 점 인디케이터. 슬로건 한 줄로 '무슨 회사인지'를 첫 화면에서 해결.</span><br><a href="https://www.studioilse.com">studioilse.com</a></div></div>
+    <div class="card"><img src="shots/vvd-scroll-2.jpg" alt="Vincent Van Duysen" loading="lazy"><div class="b"><b>Vincent Van Duysen · 앤트워프</b><span>풀이미지 스크롤형. 메뉴가 Interior ▸ Residential / Retail / Offices / Hospitality처럼 용도별로 갈라짐 — LIVING / COMMERCIAL 분류의 상위 사례.</span><br><a href="https://www.vincentvanduysen.com">vincentvanduysen.com</a></div></div>
+    <div class="card"><img src="shots/yabu.jpg" alt="Yabu Pushelberg" loading="lazy"><div class="b"><b>Yabu Pushelberg · 토론토/NY</b><span>상단 바(APPROACH / PORTFOLIO / STORY / AFFILIATES — 로고 중앙 — CONTACT / SEARCH). 본문은 사진 콜라주에 호버해야 제목이 보이는 방식(캡처 시점엔 로딩 중).</span><br><a href="https://www.yabupushelberg.com">yabupushelberg.com</a></div></div>
+    <div class="card"><img src="shots/labotory.jpg" alt="LABOTORY" loading="lazy"><div class="b"><b>LABOTORY · 서울 한남</b><span>로고 + '+' 하나뿐인 상단, 미색 종이 질감의 사각형이 화면 왼쪽을 차지. v1 archive의 '미색 배경'을 사이트 전체 분위기로 확장한 예.</span><br><a href="http://labotory.com">labotory.com</a></div></div>
+    <div class="card"><img src="shots/saladbowl.jpg" alt="SALADBOWL" loading="lazy"><div class="b"><b>SALADBOWL · 서울 (의뢰자 지정)</b><span>2열에 가로·세로 사진을 섞어 쌓고, 세로 캡션 [001] 2025 ACR COFFEE. 주소·전화·메일은 왼쪽에 세로 고정. 프로젝트 상세 서브 이미지 배치 참고.</span><br><a href="https://www.salad-bowl.co.kr">salad-bowl.co.kr</a></div></div>
+    <div class="card"><img src="shots/acquabella.jpg" alt="Acquabella Studio" loading="lazy"><div class="b"><b>Acquabella Studio · 두바이</b><span>베이지 상단 바 + About / Portfolio / Contact + 인스타 아이콘. 가장 읽기 쉬운 3메뉴. 사진 톤과 바 색을 맞춘 예.</span><br><a href="https://acquabella.studio">acquabella.studio</a></div></div>
+    <div class="card"><img src="shots/apartmentary.jpg" alt="아파트멘터리" loading="lazy"><div class="b"><b>아파트멘터리 · 서울</b><span>국내 소비자용 인테리어 사이트의 표준형: 로고 / 서비스 소개 · 포트폴리오 · 스토리 · 직영점 / '상담 신청' 버튼. DARUDA의 consult를 눈에 띄는 버튼으로 둘 때 참고. 단, 광고 톤은 과함.</span><br><a href="https://apartmentary.com">apartmentary.com</a></div></div>
+  </div>
+</section>
+
+<section id="mobbin">
+  <h2>Mobbin에서 가져온 구조 참고</h2>
+  <p class="sub">Mobbin은 앱·SaaS 중심이라 인테리어 스튜디오 사례는 거의 없습니다. 대신 '목록·상세·행 배치' 패턴이 뚜렷한 사이트 섹션을 골랐습니다. 각 링크는 Mobbin 원본입니다.</p>
+  <div class="grid3">
+    <div class="card"><img src="shots/mobbin-a24.jpg" alt="A24 index" loading="lazy"><div class="b"><b>A24 — 큰 글자 목록 + 연도</b><span>프로젝트명을 큰 타이포로 세로 나열, 옆에 작은 연도. ARCHIVING 전체 목록이나 PRESS 목록을 '사진 없는 인덱스'로 만들 때.</span><br><a href="https://mobbin.com/sites/sections/b645a881-adf5-43f3-a86c-758cd54f0b72">mobbin.com · A24</a></div></div>
+    <div class="card"><img src="shots/mobbin-locomotive.jpg" alt="Locomotive projects list" loading="lazy"><div class="b"><b>Locomotive — 3열 텍스트 표</b><span>프로젝트명 / 분야 / 도시 세 열로 된 목록과 'All projects 43' 카운트. v1의 ( 53 ) 숫자를 이렇게 목록 머리에 붙이면 의미가 생깁니다.</span><br><a href="https://mobbin.com/sites/sections/280c1a2d-41d4-4495-a4bd-816763c93ad3">mobbin.com · Locomotive</a></div></div>
+    <div class="card"><img src="shots/mobbin-vucko.jpg" alt="Vucko horizontal row" loading="lazy"><div class="b"><b>Vucko — 가로 카드 행 + 캡션</b><span>상단 바(로고 / 도시·시각 / Projects, Approach, About, Contact), 아래 가로로 넘기는 카드 행과 "제목 (클라이언트)" 캡션. v1 ARCHIVING 행의 정돈된 버전.</span><br><a href="https://mobbin.com/sites/sections/ceab4ab4-d046-4356-bde4-32acd9781fa8">mobbin.com · Vucko</a></div></div>
+    <div class="card"><img src="shots/mobbin-niteriot.jpg" alt="Nite Riot project detail" loading="lazy"><div class="b"><b>Nite Riot — 상세 좌우 분할</b><span>왼쪽 큰 사진, 오른쪽 제목 + CREDITS / LOCATION / SERVICES 메타. 하단에 BACK과 01 // 11 페이지 번호. v1 project.html의 메타 영역 강화안.</span><br><a href="https://mobbin.com/sites/sections/d8c6801c-2eaa-48ed-b55b-5c74d0042347">mobbin.com · Nite Riot</a></div></div>
+    <div class="card"><img src="shots/mobbin-kinfolk.jpg" alt="Kinfolk about" loading="lazy"><div class="b"><b>Kinfolk — About 섹션</b><span>큰 세리프 제목, 사진 두 장 비대칭, 짧은 본문 + Read more. about를 오버레이가 아닌 페이지로 만들 때의 분량·호흡 참고.</span><br><a href="https://mobbin.com/sites/sections/2b8f9706-5873-4524-a1d5-fa9e737f27d0">mobbin.com · Kinfolk</a></div></div>
+  </div>
+</section>
+
+<section id="avoid">
+  <h2>반면교사 — 독특하지만 이용자가 헤매는 사례</h2>
+  <div class="grid3">
+    <div class="card"><img src="shots/jongkim.jpg" alt="Jongkim design studio" loading="lazy"><div class="b"><b>종킴디자인스튜디오</b><span>검은 화면에 렌더 한 장, 메뉴 없음(로고와 TACT만). 작품을 보려면 어디를 눌러야 하는지 알 수 없음. v1의 '메뉴가 안 보이는' 문제와 같은 종류.</span></div></div>
+    <div class="card"><img src="shots/stpmj.jpg" alt="stpmj" loading="lazy"><div class="b"><b>stpmj</b><span>수상 목록이 사진을 덮고 하단에 'ENTER'. 인트로 페이지 하나를 더 거쳐야 함. 작품까지의 클릭 수가 늘어나는 v1 archive 구조와 같은 부담.</span></div></div>
+    <div class="card"><img src="shots/studioko.jpg" alt="Studio KO intro" loading="lazy"><div class="b"><b>Studio KO</b><span>검은 연기 인트로 + 'skip intro'. 분위기는 있지만 첫 3초를 버림. 메인 슬라이드가 3초마다 움직이는 v1도 '설명 없는 3초'가 되지 않게 캡션 필요.</span></div></div>
+  </div>
+</section>
+
+<section id="v2">
+  <h2>v2 방향 제안 (의견 주시면 그대로 반영)</h2>
+  <p class="sub">의뢰자 기획안의 '독특한 장치'는 살리되, 뼈대는 Norm·WGNB·Fenomen처럼 일반형으로 바꾸는 두 가지 안입니다.</p>
+  <div class="plan">
+    <div class="p pick">
+      <div class="k">추천 A</div>
+      <h3>Norm형 — 풀이미지 + 상단 바 + 미색 그리드</h3>
+      <ol>
+        <li>상단 바: DARUDA 로고(좌) · about / archive / press / contact(우). 사진 톤에 따라 글자색 자동 전환(v1 기능 유지).</li>
+        <li>메인 풀이미지 슬라이드 유지. 단 사진 하단에 <b>프로젝트명 + 한 줄</b> 캡션과 점 인디케이터 추가.</li>
+        <li>about·press·contact는 <b>페이지</b>로. 데스크톱에서는 흰 패널이 오른쪽에서 슬라이드되는 '패널 페이지'로 기획안 느낌 유지, 주소는 바뀜.</li>
+        <li>archive = 미색 배경 그리드 한 페이지. 상단 필터 ALL / LIVING / COMMERCIAL / PROCESSING, 머리에 "( 53 ) completed · ( 4 ) in progress". P·A 아웃라인 글자는 필터 옆 장식으로 축소.</li>
+        <li>상세 = stof 메타 리스트 + salad-bowl 가로·세로 혼합 서브 이미지.</li>
+        <li>마퀴(THIS IS WHAT WE'RE MAKING)는 PROCESSING 필터 선택 시에만 하단에 등장.</li>
+      </ol>
+    </div>
+    <div class="p">
+      <div class="k">대안 B</div>
+      <h3>WGNB형 — 분할 히어로 + 드롭다운</h3>
+      <ol>
+        <li>상단 바 동일. archive 메뉴에 드롭다운(processing / living / commercial / press).</li>
+        <li>히어로 좌측에 프로젝트명이 겹쳐 지나가는 큰 타이포(v1의 'U' 마커·아웃라인 타이포를 이 자리로 옮김), 우측 사진 슬라이드.</li>
+        <li>스크롤 첫 화면 하단에 최근 작업 썸네일 행이 보이도록 높이 조정.</li>
+        <li>나머지(상세·press·contact)는 A안과 동일.</li>
+      </ol>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>v1 장치</th><th>이용자 문제</th><th>v2 처리</th></tr></thead>
+    <tbody>
+      <tr><td>하단 메뉴 4개</td><td>메뉴로 안 보임</td><td>상단 한 줄로 이동 (Halleroed·Norm)</td></tr>
+      <tr><td>hover 오버레이</td><td>URL 없음, 모바일 상이</td><td>패널 페이지 또는 일반 페이지 (Kinfolk 분량)</td></tr>
+      <tr><td>'U' 마커</td><td>의미 불명</td><td>B안 히어로 타이포로 흡수, 또는 삭제</td></tr>
+      <tr><td>P / A 2분할</td><td>클릭 1단계 추가</td><td>그리드 필터로 통합, 글자는 장식 (Locomotive 카운트)</td></tr>
+      <tr><td>캡션 없는 슬라이드</td><td>무슨 사진인지 모름</td><td>프로젝트명 캡션 (Norm·stof)</td></tr>
+      <tr><td>마퀴 2종</td><td>배경 소음</td><td>PROCESSING 맥락에서만</td></tr>
+      <tr><td>톤에 따른 글자색 전환</td><td>문제 없음, 독특함</td><td><b>유지</b></td></tr>
+      <tr><td>미색 배경·굵은 로고·Pretendard</td><td>문제 없음</td><td><b>유지</b>, 사이트 전체로 확장 (LABOTORY)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  캡처 출처: 각 사이트 공개 페이지(2026-10-21), Mobbin(mobbin.com). 참고용으로만 사용하고 이미지는 재배포하지 않습니다. 관련 문서: <a href="../v1/REQUIREMENTS.md">v1/REQUIREMENTS.md</a> · <a href="../v1/DESIGN-SYSTEM.md">v1/DESIGN-SYSTEM.md</a>
+</footer>
+</div>
+</body>
+</html>

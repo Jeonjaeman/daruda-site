@@ -1,0 +1,12 @@
+# 로컬 상태·원본 기획 자료(비공개)
+.omc/
+*.webp
+# 제3자 사이트에서 추출한 소스 조각은 공개 저장소에 올리지 않음
+references/hollywood/shaders-extract*.txt
+references/hollywood/plane-vertex.glsl
+references/hollywood/chunks/
+# 도구 산출물
+**/_tools/__pycache__/
+**/_tools/press-data.js
+Thumbs.db
+.DS_Store

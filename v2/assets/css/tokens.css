@@ -1,0 +1,41 @@
+/* DARUDA v1 — design tokens */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+:root {
+  /* color */
+  --c-black: #111111;
+  --c-white: #ffffff;
+  --c-cream: #f3f0e8;
+  --c-grey-100: #f5f5f5;
+  --c-grey-200: #e6e6e6;
+  --c-grey-400: #9a9a9a;
+  --c-grey-700: #4a4a4a;
+  --c-line: #111111;
+  --ui-color: #ffffff;           /* 메인 사진 위 로고/메뉴 색 (JS가 갱신) */
+
+  /* type */
+  --font-outline: "Helvetica Neue", Helvetica, Arial, sans-serif; /* 아웃라인 P/A — Pretendard는 윤곽 겹침으로 text-stroke 선이 겹쳐 보여 그로테스크 산세리프 사용 (기획안 A 모양과 동일 계열) */
+  --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --fs-logo: clamp(40px, 5.6vw, 84px);
+  --fs-tagline: 11px;
+  --fs-nav: 18px;
+  --fs-title: 20px;
+  --fs-body: 15px;
+  --fs-label: 14px;
+  --fs-caption: 13px;
+  --fs-caption-sm: 11px;
+  --fs-outline: clamp(200px, 32vw, 460px);
+  --fs-marquee: 13px;
+
+  /* space */
+  --gutter: clamp(20px, 3vw, 48px);
+  --bar: 72px;
+  --gap: clamp(12px, 1.6vw, 24px);
+  --marquee-h: 44px;
+
+  /* motion */
+  --ease-slide: cubic-bezier(.77, 0, .18, 1);
+  --t-slide: 900ms;
+  --t-fast: 180ms;
+  --t-marquee: 28s;
+}

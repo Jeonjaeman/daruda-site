@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DARUDA</title>
+<meta name="description" content="DARUDA DESIGN STUDIO — 주식회사 다루다. 건축 인테리어 기획·설계·시공·브랜딩·제작 가구. 천안.">
+<link rel="stylesheet" href="assets/css/v3.css">
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js" } }</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body class="no-cursor">
+
+<!-- 인트로 -->
+<section class="intro" id="intro" aria-label="intro">
+  <div class="t">
+    <span class="sm">Design Studio · Cheonan</span>
+    <span class="big">DARUDA</span>
+    <span class="sm" style="margin-top:14px">space <span class="it">and</span> experience</span>
+  </div>
+  <button class="skip" type="button">skip intro</button>
+</section>
+
+<!-- 헤더 -->
+<header class="hd" id="hd">
+  <button class="view" id="viewToggle" type="button" aria-label="Toggle list view"><i><b></b><b></b><b></b><b></b></i><span>View</span></button>
+  <a class="logo" href="index.html">DARUDA</a>
+  <button class="menu" id="menuBtn" type="button" aria-label="Open menu">Menu</button>
+</header>
+
+<div id="scroller">
+  <!-- 마스트헤드 -->
+  <section class="masthead" id="masthead">
+    <div class="hint">scroll to explore</div>
+    <div class="word serif" id="mastWord">DARUDA</div>
+    <div class="tag" data-company></div>
+  </section>
+
+  <!-- 칩 필터 (D안) -->
+  <nav class="chips" id="chips" aria-label="filter">
+    <button type="button" data-f="all" class="is-on">All<small data-n="all"></small></button>
+    <button type="button" data-f="living">Living<small data-n="living"></small></button>
+    <button type="button" data-f="commercial">Commercial<small data-n="commercial"></small></button>
+    <button type="button" data-f="processing">Processing<small data-n="processing"></small></button>
+    <button type="button" data-f="press">Press<small data-n="press"></small></button>
+    <span class="count" id="chipCount"></span>
+  </nav>
+
+  <!-- 흩어진 그리드 -->
+  <section class="gallery" id="gallery">
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <footer class="ft" id="foot"></footer>
+</div>
+<div id="spacer"></div>
+
+<!-- 상세 (E안 패널) -->
+<section class="detail" id="detail" aria-label="project detail">
+  <div class="strip" id="strip"></div>
+  <div class="stage"><img id="detailImg" alt=""></div>
+  <div class="panel">
+    <div class="idx" id="dIdx"></div>
+    <div class="when" id="dWhen"></div>
+    <div class="credit" id="dCredit"></div>
+    <p class="desc" id="dDesc"></p>
+    <div class="meta" id="dMeta"></div>
+    <div class="name"><span class="first" id="dFirst"></span><span class="last" id="dLast"></span></div>
+    <button class="close" id="dClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="nav"><button type="button" id="dPrev">← prev</button><button type="button" id="dNext">next →</button></div>
+</section>
+
+<!-- 메뉴 (C안 타이포 벽) -->
+<section class="menu-ov" id="menu" aria-label="menu">
+  <button class="close" id="menuClose" type="button">Close</button>
+  <ul class="words">
+    <li><a href="about.html">ABOUT<small>studio · 천안</small></a></li>
+    <li><a href="#archive" data-archive>ARCHIVE<small id="menuCount"></small></a></li>
+    <li><a href="press.html">PRESS<small>magazines · pdf</small></a></li>
+    <li><a href="contact.html">CONTACT<small>consult</small></a></li>
+  </ul>
+  <div class="info" id="menuInfo"></div>
+</section>
+
+<canvas id="gl"></canvas>
+<div class="grain" id="grain"></div>
+<div class="cursor" id="cursor"><div class="cursor-halo"></div><div class="cursor-dot"></div><div class="cursor-label">View</div></div>
+
+<script src="assets/data/site.js"></script>
+<script type="module" src="assets/js/v3.js"></script>
+</body>
+</html>

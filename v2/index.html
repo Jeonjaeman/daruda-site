@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DARUDA</title>
+<meta name="description" content="DARUDA DESIGN STUDIO — 주식회사 다루다. 건축 인테리어 기획·설계·시공·브랜딩·제작 가구.">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+<header class="bar">
+  <a class="logo" href="index.html">DARUDA</a>
+  <div class="bar-center">DESIGN STUDIO · CHEONAN</div>
+  <ul class="nav">
+    <li><a href="about.html" data-key="about" data-panel>about</a></li>
+    <li><a href="archive.html" data-key="archive">archive</a></li>
+    <li><a href="press.html" data-key="press" data-panel>press</a></li>
+    <li><a href="contact.html" data-key="contact" data-panel>contact</a></li>
+  </ul>
+</header>
+
+<section class="hero" aria-label="최근 프로젝트">
+  <div class="slides" aria-hidden="true"></div>
+  <div class="hero-cap"></div>
+  <div class="dots" role="tablist"></div>
+  <p class="hero-tag" data-company></p>
+</section>
+
+<section class="intro">
+  <h2>일상의 영감과 새로운 시각으로<br>감각적인 공간과 고유한 경험을 만듭니다.</h2>
+  <div>
+    <p>건축 인테리어 기획부터 설계·시공, 브랜딩과 제작 가구까지. 공간에서 경험할 수 있는 모든 것을 한 팀이 고민합니다.</p>
+    <a class="more" href="archive.html">archive 보기</a>
+  </div>
+</section>
+
+<section class="grid" data-recent aria-label="최근 작업"></section>
+
+<footer class="foot" data-foot></footer>
+
+<!-- about / press / contact 패널 (주소가 바뀌는 페이지, 메인 위에서 열림) -->
+<div class="panel-root" aria-live="polite">
+  <div class="scrim"></div>
+  <aside class="panel"><button class="panel-close" type="button">close</button><div class="panel-body"></div></aside>
+</div>
+
+<script src="assets/data/site.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

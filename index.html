@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DARUDA 웹사이트 시안 — v1 · v2 · v3</title>
+<meta name="description" content="주식회사 다루다(DARUDA DESIGN STUDIO) 웹사이트 프로토타입 3종과 레퍼런스 보드">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0e0e0e; --paper: #f3f1ec; --ink: #ececec; --grey: #8c8a86; --line: #262626; --serif: "Instrument Serif", "Times New Roman", serif; --sans: "Pretendard Variable", Pretendard, system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 400; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 56px clamp(16px, 4vw, 48px) 96px; }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+  .brand { font-family: var(--serif); font-size: clamp(44px, 7vw, 92px); line-height: .95; letter-spacing: .04em; }
+  .brand small { display: block; font-family: var(--sans); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--grey); margin-top: 14px; }
+  .meta { font-size: 13px; color: var(--grey); line-height: 1.8; text-align: right; }
+  .meta b { color: var(--ink); font-weight: 500; }
+  h2 { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--grey); margin: 56px 0 20px; font-weight: 500; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card { background: #151515; border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; transition: border-color .25s, transform .25s; }
+  .card:hover { border-color: #444; transform: translateY(-2px); }
+  .card .shot { aspect-ratio: 16 / 10; overflow: hidden; background: #000; }
+  .card .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .card:hover .shot img { transform: scale(1.03); }
+  .card .body { padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .card .ver { font-family: var(--serif); font-size: 34px; line-height: 1; }
+  .card .ver span { font-family: var(--sans); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--grey); margin-left: 10px; vertical-align: middle; }
+  .card p { margin: 0; font-size: 14px; line-height: 1.75; color: #bdbbb6; }
+  .card .links { margin-top: auto; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; }
+  .card .links a { color: var(--grey); border-bottom: 1px solid transparent; }
+  .card .links a:hover { color: var(--ink); border-color: var(--ink); }
+  .card .links a.main { color: var(--ink); border-color: var(--ink); }
+  .refs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .ref { border: 1px solid var(--line); padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; }
+  .ref:hover { border-color: #444; }
+  .ref b { font-weight: 500; font-size: 15px; }
+  .ref span { font-size: 13px; color: var(--grey); line-height: 1.7; }
+  .note { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 22px; font-size: 13px; line-height: 1.9; color: var(--grey); }
+  .note b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 900px) { .cards, .refs { grid-template-columns: 1fr; } .meta { text-align: left; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">DARUDA<small>website prototypes · 주식회사 다루다 · 천안</small></div>
+    <div class="meta"><b>시안 3종 + 레퍼런스 보드</b><br>데스크톱 Chrome 기준 · v3는 WebGL 사용<br>이미지·매거진은 임시 예시 자료</div>
+  </header>
+
+  <h2>Prototypes</h2>
+  <div class="cards">
+    <a class="card" href="v1/index.html">
+      <div class="shot"><img src="v1/_preview/01-main.jpg" alt="v1 메인" loading="lazy"></div>
+      <div class="body">
+        <div class="ver">v1<span>기획안 그대로</span></div>
+        <p>의뢰 기획 이미지의 구성을 그대로 옮긴 시안. 사진 위 한 줄 텍스트, 하단 소문자 메뉴, about·press·contact 오버레이, archive만 페이지 이동. stof·salad-bowl 레퍼런스의 디자인 시스템 적용.</p>
+        <div class="links"><span class="main">index</span><span>archive</span><span>processing</span><span>archiving</span><span>admin</span></div>
+      </div>
+    </a>
+    <a class="card" href="v2/index.html">
+      <div class="shot"><img src="v2/_preview/01-main.jpg" alt="v2 메인" loading="lazy"></div>
+      <div class="body">
+        <div class="ver">v2<span>A안 · Norm형</span></div>
+        <p>이용자가 헤매지 않는 일반적 구성. 상단 바 메뉴, 풀이미지 캡션 슬라이드, 미색 필터 그리드 archive, stof식 프로젝트 상세, 매거진 스프레드 뷰어(PDF·스캔본).</p>
+        <div class="links"><span class="main">index</span><span>archive</span><span>processing</span><span>project</span><span>press</span><span>admin</span></div>
+      </div>
+    </a>
+    <a class="card" href="v3/index.html">
+      <div class="shot"><img src="v3/_preview/v3-03-grid.jpg" alt="v3 갤러리" loading="lazy"></div>
+      <div class="body">
+        <div class="ver">v3<span>Hollywood식 갤러리</span></div>
+        <p>hollywoodexhibit2026.com 분석을 바탕으로 three.js로 재구현. 스파이럴 인트로, 거대 마스트헤드, 흩어진 그리드 + 하프톤 포인터 리빌, 종이 접힘 전환, 타이포 벽 메뉴, 칩 필터. 스크롤 디테일(첫 2컷 축소·기울임·블러 진입) 반영.</p>
+        <div class="links"><span class="main">index</span><span>about</span><span>press</span><span>contact</span><span>admin</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h2>References</h2>
+  <div class="refs">
+    <a class="ref" href="references/index.html"><b>인테리어 레퍼런스 보드 (v2용)</b><span>Norm Architects · WGNB · Fenomen · Halleroed 등 일반적이지만 독특한 구성 8종, A~D 제안</span></a>
+    <a class="ref" href="references/v3-index.html"><b>v3 레퍼런스 보드</b><span>기획안을 벗어난 패러다임 8종, C 타이포 벽 / D 컨택트 시트 / E 출판물 / F 빈 화면+커서 제안</span></a>
+    <a class="ref" href="https://github.com/Jeonjaeman/daruda-site/blob/main/references/hollywood/analysis.md"><b>Hollywood 사이트 분석 문서</b><span>소스 구성 · 3D 표현 · 셰이더 · 인터랙션 · 모션 분석과 v3 반영 사항 (GitHub에서 열림)</span></a>
+  </div>
+
+  <div class="note">
+    <b>보는 법</b> · 각 카드를 누르면 해당 시안의 첫 화면으로 이동합니다. v3는 인트로 후 스크롤, 사진 호버·클릭, 우상단 Menu, 좌상단 View 토글, ←/→/Esc 키를 써 보세요.<br>
+    <b>임시 자료</b> · 인테리어 사진은 AI 생성 이미지, 매거진 12종은 합성한 예시입니다. 실제 사진·게재 자료를 받으면 교체합니다. 대표자 성함·사업자번호 등 미확정 정보는 의뢰자 확인 후 반영합니다.<br>
+    <b>관리자</b> · 각 시안의 admin.html은 브라우저 저장소(localStorage)만 쓰는 목업입니다.
+  </div>
+</div>
+</body>
+</html>
