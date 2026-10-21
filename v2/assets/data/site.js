@@ -1,7 +1,7 @@
 /* DARUDA v2 — 콘텐츠 데이터 (관리자 페이지가 수정하게 될 구조 그대로)
    관리자 프로토타입은 localStorage('daruda:v2')에 덮어쓴 값을 우선 사용한다. */
 window.DARUDA_DEFAULT = {
-  dataVersion: 2,   /* 기본 데이터가 바뀌면 올린다 — 관리자 저장본(localStorage) 버전이 다르면 무시 */
+  dataVersion: 3,   /* 기본 데이터가 바뀌면 올린다 — 관리자 저장본(localStorage) 버전이 다르면 무시 */
   company: {
     logo: "DARUDA",
     legalName: "주식회사 다루다",
@@ -35,7 +35,11 @@ window.DARUDA_DEFAULT = {
     { src: "assets/img/main-03.jpg", ui: "auto", title: "ep.i", caption: "콘크리트와 흰 벽의 쇼룸, 의자 하나", projectId: "ep-i" },
     { src: "assets/img/main-04.jpg", ui: "#bfe3ff", title: "bar W", caption: "테라조 바닥과 황동 펜던트의 와인 바", projectId: "wine-bar" },
     { src: "assets/img/main-05.jpg", ui: "auto", title: "white kitchen", caption: "베이지 플라스터 벽의 침실", projectId: "white-kitchen" },
-    { src: "assets/img/main-06.jpg", ui: "auto", title: "clinic G", caption: "트래버틴 리셉션과 간접 조명의 로비", projectId: "clinic-g" }
+    { src: "assets/img/main-06.jpg", ui: "auto", title: "clinic G", caption: "트래버틴 리셉션과 간접 조명의 로비", projectId: "clinic-g" },
+    { src: "assets/img/main-07.jpg", ui: "auto", title: "stair house", caption: "세종 단독주택 — 오크 계단과 2층 높이 거실", projectId: "stair-house" },
+    { src: "assets/img/main-08.jpg", ui: "auto", title: "salon A", caption: "두정동 헤어살롱 — 아치 거울과 테라조 바닥", projectId: "salon-a" },
+    { src: "assets/img/main-09.jpg", ui: "auto", title: "cafe S", caption: "성정동 카페 — 천창 아래 긴 석재 카운터", projectId: "cafe-s" },
+    { src: "assets/img/main-10.jpg", ui: "auto", title: "tea room", caption: "다다미와 장지문의 찻집", projectId: "tea-room" }
   ],
   slideInterval: 4000,
 
@@ -78,7 +82,7 @@ window.DARUDA_DEFAULT = {
       pages: ["assets/img/press/house22-01.jpg", "assets/img/press/house22-02.jpg"] }
   ],
 
-  counts: { processing: 4, archiving: 53 },
+  counts: { processing: 8, archiving: 106 },
 
   processing: [
     { src: "assets/img/proc-01.jpg", caption: "불당동 주택 — 철거 및 구조 보강" },
@@ -88,7 +92,15 @@ window.DARUDA_DEFAULT = {
     { src: "assets/img/sub-02.jpg", caption: "복도 조명 테스트" },
     { src: "assets/img/sub-04.jpg", caption: "아일랜드 석재 시공" },
     { src: "assets/img/sub-01.jpg", caption: "문턱 디테일" },
-    { src: "assets/img/sub-03.jpg", caption: "창가 벤치 제작" }
+    { src: "assets/img/sub-03.jpg", caption: "창가 벤치 제작" },
+    { src: "assets/img/proc-05.jpg", caption: "두정동 살롱 — 곡면 벽 미장" },
+    { src: "assets/img/proc-06.jpg", caption: "도면 검토와 마감재 선정" },
+    { src: "assets/img/proc-07.jpg", caption: "제작 가구 — 오크 캐비닛 조립" },
+    { src: "assets/img/proc-08.jpg", caption: "타일 나누기 시공" },
+    { src: "assets/img/sub-06.jpg", caption: "계단 난간 디테일" },
+    { src: "assets/img/sub-08.jpg", caption: "테라조 카운터 모서리" },
+    { src: "assets/img/sub-09.jpg", caption: "복도 간접 조명 점검" },
+    { src: "assets/img/sub-10.jpg", caption: "리셉션 상판 시공" }
   ],
 
   /* 완료 프로젝트 — category: living | commercial. main 1장 + subs 최대 20장 */
@@ -140,7 +152,47 @@ window.DARUDA_DEFAULT = {
       cover: "assets/img/com-04.jpg", main: "assets/img/com-04.jpg",
       desc: "짙은 월넛 선반과 석재 바 상판의 와인 바. 바 의자와 선반을 제작했습니다.",
       location: "Cheonan, Chungnam", area: "64㎡", use: "Wine Bar", materials: "walnut, basalt, brass", photography: "DARUDA",
-      subs: [ { src: "assets/img/main-04.jpg", shape: "landscape" }, { src: "assets/img/sub-03.jpg", shape: "portrait" } ] }
+      subs: [ { src: "assets/img/main-04.jpg", shape: "landscape" }, { src: "assets/img/sub-03.jpg", shape: "portrait" } ] },
+    { id: "stair-house", category: "living", title: "stair house", year: 2026, field: "SPACE, FURNITURE",
+      cover: "assets/img/main-07.jpg", main: "assets/img/main-07.jpg",
+      desc: "2층 높이의 거실에 오크 계단을 띄운 단독주택. 계단참의 작은 창이 하루의 빛을 거실로 끌어들입니다.",
+      location: "Sejong", area: "168㎡", use: "Residential", materials: "oak, white plaster, black steel", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-06.jpg", shape: "portrait" }, { src: "assets/img/sub-11.jpg", shape: "landscape" }, { src: "assets/img/sub-07.jpg", shape: "portrait" }, { src: "assets/img/liv-05.jpg", shape: "landscape" } ] },
+    { id: "attic-bed", category: "living", title: "attic bedroom", year: 2025, field: "SPACE",
+      cover: "assets/img/liv-05.jpg", main: "assets/img/liv-05.jpg",
+      desc: "경사 천장을 흰색으로 비우고 낮은 평상 침대만 둔 다락 침실. 바닥의 오크가 유일한 색입니다.",
+      location: "Cheonan, Chungnam", area: "22㎡", use: "Residential", materials: "oak, white paint, linen", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-07.jpg", shape: "portrait" }, { src: "assets/img/sub-11.jpg", shape: "landscape" } ] },
+    { id: "green-kitchen", category: "living", title: "green kitchen", year: 2024, field: "SPACE, FURNITURE",
+      cover: "assets/img/liv-08.jpg", main: "assets/img/liv-08.jpg",
+      desc: "짙은 녹색 아일랜드와 황동 펜던트로 중심을 잡은 주방·식당. 상부장은 두지 않았습니다.",
+      location: "Cheonan, Chungnam", area: "38㎡", use: "Residential", materials: "green lacquer, brass, oak", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-08.jpg", shape: "portrait" }, { src: "assets/img/sub-12.jpg", shape: "landscape" }, { src: "assets/img/sub-09.jpg", shape: "landscape" } ] },
+    { id: "salon-a", category: "commercial", title: "salon A", year: 2026, field: "SPACE, BRANDING",
+      cover: "assets/img/main-08.jpg", main: "assets/img/main-08.jpg",
+      desc: "아치형 거울과 베이지 플라스터 벽의 헤어살롱. 테라조 바닥과 간판 서체를 한 규칙으로 맞췄습니다.",
+      location: "Dujeong-dong, Cheonan", area: "96㎡", use: "Hair Salon", materials: "plaster, terrazzo, brass", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-08.jpg", shape: "portrait" }, { src: "assets/img/sub-09.jpg", shape: "landscape" }, { src: "assets/img/sub-07.jpg", shape: "portrait" } ] },
+    { id: "cafe-s", category: "commercial", title: "cafe S", year: 2025, field: "SPACE",
+      cover: "assets/img/main-09.jpg", main: "assets/img/main-09.jpg",
+      desc: "천창 아래 긴 석재 카운터 하나로 정리한 콘크리트 카페. 가구는 벤치 하나와 스툴뿐입니다.",
+      location: "Seongjeong-dong, Cheonan", area: "88㎡", use: "Cafe", materials: "concrete, basalt, oak", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-10.jpg", shape: "landscape" }, { src: "assets/img/sub-11.jpg", shape: "landscape" }, { src: "assets/img/sub-06.jpg", shape: "portrait" } ] },
+    { id: "tea-room", category: "commercial", title: "tea room", year: 2025, field: "SPACE, FURNITURE",
+      cover: "assets/img/main-10.jpg", main: "assets/img/main-10.jpg",
+      desc: "다다미와 장지문, 짙은 목재로 구성한 찻집. 좌탁과 선반을 제작했습니다.",
+      location: "Gongju, Chungnam", area: "54㎡", use: "Tea House", materials: "dark timber, tatami, washi", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-12.jpg", shape: "landscape" }, { src: "assets/img/sub-05.jpg", shape: "portrait" } ] },
+    { id: "eyewear-n", category: "commercial", title: "eyewear N", year: 2024, field: "SPACE, BRANDING",
+      cover: "assets/img/com-05.jpg", main: "assets/img/com-05.jpg",
+      desc: "흰 벽감 진열과 트래버틴 카운터의 안경 매장. 안경 한 개씩만 놓이는 진열 간격을 먼저 정했습니다.",
+      location: "Cheonan, Chungnam", area: "42㎡", use: "Eyewear Shop", materials: "travertine, white lacquer", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-10.jpg", shape: "landscape" }, { src: "assets/img/sub-05.jpg", shape: "portrait" } ] },
+    { id: "hotel-r", category: "commercial", title: "hotel R", year: 2023, field: "SPACE, FURNITURE",
+      cover: "assets/img/com-08.jpg", main: "assets/img/com-08.jpg",
+      desc: "곡면 플라스터 벽과 석재 바닥, 펜던트 하나의 부티크 호텔 로비. 리셉션 데스크를 제작했습니다.",
+      location: "Gongju, Chungnam", area: "140㎡", use: "Hotel Lobby", materials: "plaster, limestone, brass", photography: "DARUDA",
+      subs: [ { src: "assets/img/sub-10.jpg", shape: "landscape" }, { src: "assets/img/sub-08.jpg", shape: "portrait" }, { src: "assets/img/sub-12.jpg", shape: "landscape" } ] }
   ],
 
   marquee: { processing: "THIS IS WHAT WE'RE MAKING" }

@@ -44,3 +44,6 @@ v3/
 
 ## press 예시 자료 (2026-10-22 추가)
 매거진 예시 12종(bob 2종, 전원속의 내집 2종, MARU, CASA LIVING, INTERIORS, DECO JOURNAL, 행복이 가득한 집, SPACE, CAFE &, MAISON). 표지 4가지 스타일·펼침면 2~4장·PDF는 `v2/_tools/make_press_more.py`(PIL)로 합성한 임시 자료이며, 매거진명·호수·기사 내용은 모두 예시다. 실제 게재 자료를 받으면 `assets/img/press/`·`assets/press/`와 `site.js`의 `press` 배열을 교체한다. `site.js`의 `dataVersion`이 관리자 저장본과 다르면 저장본을 무시한다(기본 데이터 갱신 시 올릴 것).
+
+## 샘플 데이터 2배(2026-10-22)
+슬라이드 6→10, 진행 중 8→16, 프로젝트 8→16(living 7·commercial 9), press 12종 유지. 새 이미지 24장은 `v2/_tools/gen_images_more.py`(ComfyUI flux1-schnell)로 생성, 데이터 추가는 `v2/_tools/add_samples.py`가 v1·v2·v3 `site.js`에 동일 반영(`dataVersion` 3). 모두 임시 예시.
