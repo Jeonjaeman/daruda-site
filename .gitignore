@@ -10,3 +10,6 @@ references/hollywood/chunks/
 **/_tools/press-data.js
 Thumbs.db
 .DS_Store
+
+# 고객 원본 자료(비공개)
+자료/

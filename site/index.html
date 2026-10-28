@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DARUDA DESIGN STUDIO</title>
+<meta name="description" content="DARUDA DESIGN STUDIO — 주식회사 다루다. 건축 인테리어 기획·설계·시공·브랜딩·제작 가구. 천안.">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="is-main">
+<main class="main">
+  <div class="slides" aria-hidden="true"></div>
+
+  <div class="main-ui">
+    <header class="top">
+      <h1 class="logo"><a href="index.html" aria-label="DARUDA 홈">DARUDA</a></h1>
+      <p class="tagline" data-tagline></p>
+      <nav class="sns" data-sns aria-label="SNS"></nav>
+    </header>
+
+    <ul class="nav-main">
+      <li data-key="about"><span class="u-marker" aria-hidden="true">U</span><button type="button">about</button></li>
+      <li data-key="archive"><span class="u-marker" aria-hidden="true">U</span><button type="button">archive</button></li>
+      <li data-key="press"><span class="u-marker" aria-hidden="true">U</span><button type="button">press</button></li>
+      <li data-key="contact"><span class="u-marker" aria-hidden="true">U</span><button type="button">contact</button></li>
+    </ul>
+
+    <!-- 모든 오버레이 사각형은 같은 크기. 위치는 JS가 메뉴 글자 선에 맞춘다 -->
+    <section class="box" id="ov-about" aria-label="about" data-align="about">
+      <div class="box-in about">
+        <div class="about-text">
+          <h2 class="about-title"></h2>
+          <div class="about-lines"></div>
+        </div>
+        <figure class="about-img"><img alt=""></figure>
+      </div>
+    </section>
+
+    <section class="box" id="ov-archive" aria-label="archive" data-align="center">
+      <div class="box-in archive-menu"></div>
+    </section>
+
+    <section class="box" id="ov-press" aria-label="press" data-align="press">
+      <div class="box-in press">
+        <div class="press-list"></div>
+        <div class="press-detail"></div>
+      </div>
+    </section>
+
+    <section class="box" id="ov-contact" aria-label="contact" data-align="center">
+      <div class="box-in contact">
+        <div class="consult">
+          <span class="consult-label">consult</span>
+          <form class="consult-form" novalidate></form>
+        </div>
+        <div class="privacy">
+          <h3 class="privacy-title"></h3>
+          <div class="privacy-body" tabindex="0"></div>
+        </div>
+        <div class="contact-info"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="assets/data/site.js"></script>
+<script src="assets/data/consult.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

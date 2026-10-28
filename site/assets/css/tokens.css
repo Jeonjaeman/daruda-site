@@ -1,0 +1,45 @@
+/* DARUDA site — design tokens */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+:root {
+  --c-black: #111111;
+  --c-white: #ffffff;
+  --c-grey-100: #f3f3f3;
+  --c-grey-200: #e2e2e2;
+  --c-grey-400: #9a9a9a;
+  --c-grey-700: #4a4a4a;
+  --ui-color: #ffffff;            /* 메인 사진 위 로고 · 메뉴 색 (JS가 이미지별로 갱신) */
+  --ui-contrast: #111111;         /* SNS 네모 안 아이콘 색 */
+
+  /* 고객 지정 서체가 오면 --font 만 바꾼다 */
+  --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --fs-logo: clamp(40px, 5.4vw, 92px);
+  --ls-logo: .32em;
+  --fs-u: clamp(44px, 4.6vw, 80px);
+  --fs-tagline: 11px;
+  --fs-nav: clamp(17px, 1.55vw, 24px);
+  --fs-title: 18px;
+  --fs-body: 14.5px;
+  --fs-label: 14px;
+  --fs-caption: 13px;
+
+  --gutter: clamp(20px, 6.2vw, 120px);
+  --gutter-wide: clamp(20px, 8vw, 160px);
+  --top-y: clamp(24px, 5.5vh, 64px);
+  --nav-y: clamp(20px, 3.6vh, 40px);
+  --sns: clamp(26px, 2.2vw, 36px);
+  --gap: clamp(12px, 1.4vw, 22px);
+
+  /* 오버레이 사각형 (기획안 비율: 위 26% · 높이 54%) */
+  --box-top: 26vh;
+  --box-h: 54vh;
+  --box-pad: clamp(18px, 2.4vw, 40px);
+  --box-alpha: .86;
+
+  --ease-slide: cubic-bezier(.77, 0, .18, 1);
+  --t-slide: 900ms;
+  --t-fast: 200ms;
+}
+@media (max-width: 767px) {
+  :root { --box-top: 22vh; --box-h: 60vh; --gutter: 20px; }
+}
