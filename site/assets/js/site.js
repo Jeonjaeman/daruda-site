@@ -1,6 +1,21 @@
 /* DARUDA site — behaviour (최종 기획안 2026-10-27) */
 (function () {
   const D = window.DARUDA;
+  /* 고객 실제 자료(content.js)가 있으면 그 데이터로 바꾼다 — CMS 연결 전까지의 단계 */
+  const K = window.DARUDA_CONTENT;
+  if (K) {
+    if (K.sns) D.company = Object.assign({}, D.company, { sns: Object.assign({}, (D.company || {}).sns, K.sns) });
+    if (K.slides && K.slides.length) D.slides = K.slides.map((s) => ({ src: s.lg || s.md, ui: s.ui || "auto" }));
+    if (K.slides && K.slides.length) D.about = Object.assign({}, D.about, { image: (K.about && K.about.image) || K.slides[0].md });   // about 전용 사진을 받기 전까지 메인 1번
+    if (K.press && K.press.length) D.press = K.press.map((p) => ({ id: p.id, title: p.title, date: p.date, cover: p.cover.sm, pages: p.pages.map((x) => x.md), pdf: p.pdf || "" }));
+    if (K.archiveMenu) D.archiveMenu = K.archiveMenu.map((m) => ({ key: m.key, label: m.label, href: m.href, src: m.img.md }));
+    if (K.processing && K.processing.length) D.processing = K.processing.map((x) => ({ src: x.md, thumb: x.sm }));
+    if (K.projects && K.projects.length) D.projects = K.projects.map((p) => ({
+      id: p.id, category: p.category, title: p.title, pyeong: p.pyeong, location: p.location, area: p.area, use: p.use,
+      cover: p.main.sm, main: p.main.md,
+      subs: p.subs.map((x) => ({ src: x.md, shape: x.shape })), branding: (p.branding || []).map((x) => ({ src: x.md, shape: x.shape }))
+    }));
+  }
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -203,7 +218,7 @@
   const gp = $(".grid-proc");
   if (gp) {
     const list = D.processing.slice(0, 8);
-    gp.innerHTML = list.map((p, i) => `<button type="button" data-i="${i}" aria-label="${esc(p.caption || "진행 중 작업 " + (i + 1))}"><img src="${esc(p.src)}" alt="" loading="lazy"></button>`).join("");
+    gp.innerHTML = list.map((p, i) => `<button type="button" data-i="${i}" aria-label="${esc(p.caption || "진행 중 작업 " + (i + 1))}"><img src="${esc(p.thumb || p.src)}" alt="" loading="lazy"></button>`).join("");
     const srcs = list.map((p) => p.src);
     $$("button", gp).forEach((b) => (b.onclick = () => LB.open(srcs, +b.dataset.i)));
   }
@@ -214,7 +229,7 @@
     const cat = gw.dataset.works;
     const list = D.projects.filter((p) => p.category === cat);
     gw.innerHTML = list.length ? list.map((p) => {
-      const sub = cat === "living" ? [p.area, pyeong(p.area)].filter(Boolean).join(" · ") : [p.use, p.area].filter(Boolean).join(" · ");
+      const sub = cat === "living" ? [p.pyeong || pyeong(p.area), p.area].filter(Boolean).join(" · ") : [p.use, p.area].filter(Boolean).join(" · ");
       return `<a class="work" href="project.html?id=${encodeURIComponent(p.id)}"><img src="${esc(p.cover)}" alt="" loading="lazy"><div class="cap"><b>${esc(p.title)}</b><span>${esc(sub)}</span></div></a>`;
     }).join("") : `<p class="empty">등록된 프로젝트가 없습니다.</p>`;
   }
@@ -227,14 +242,17 @@
     document.title = p.title + " — DARUDA";
     const label = p.category === "living" ? "Living" : "Commercial";
     $("[data-cat]").innerHTML = `<a href="${p.category}.html">${label}</a>`;
-    const subs = p.subs.slice(0, 20);
-    const all = [p.main].concat(subs.map((s) => s.src));
+    const subs = p.subs;   // 스테이는 20장 이상(고객 요청 10/28) — 상한 없음
+    const brand = p.branding || [];
+    const all = [p.main].concat(subs.map((s) => s.src), brand.map((s) => s.src));
     $(".project-main", pj).innerHTML = `<button type="button" aria-label="크게 보기"><img src="${esc(p.main)}" alt="${esc(p.title)}"></button>
       <h2>${esc(p.title)}</h2>
       <div class="project-meta"><div><span>location :</span>${esc(p.location)}</div><div><span>area :</span>${esc(p.area)}</div><div><span>use :</span>${esc(p.use)}</div></div>
       ${p.desc ? `<p class="project-desc">${esc(p.desc)}</p>` : ""}`;
     $(".project-main button", pj).onclick = () => LB.open(all, 0);
     $(".project-subs", pj).innerHTML = subs.map((s, i) => `<button type="button" class="${esc(s.shape || "landscape")}" data-i="${i + 1}" aria-label="사진 ${i + 1} 크게 보기"><img src="${esc(s.src)}" alt="" loading="lazy"></button>`).join("");
+    if (brand.length) $(".project-subs", pj).insertAdjacentHTML("beforeend", `<h3 class="subs-label">branding</h3>` +
+      brand.map((s, i) => `<button type="button" class="${esc(s.shape || "landscape")}" data-i="${subs.length + 1 + i}" aria-label="브랜딩 ${i + 1} 크게 보기"><img src="${esc(s.src)}" alt="" loading="lazy"></button>`).join(""));
     $$(".project-subs button", pj).forEach((b) => (b.onclick = () => LB.open(all, +b.dataset.i)));
   }
 })();

@@ -139,6 +139,8 @@ figure { margin: 0; }
 .project-subs img { width: 100%; height: 100%; object-fit: cover; }
 .project-subs .landscape { aspect-ratio: 4 / 3; }
 .project-subs .portrait { aspect-ratio: 3 / 4; grid-row: span 2; }
+.project-subs .subs-label { grid-column: 1 / -1; margin: 18px 0 0; font-size: var(--fs-label); font-weight: 500; letter-spacing: .04em; }
+.project-subs .square { aspect-ratio: 1 / 1; }
 .project-subs .wide { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
 
 /* ---------- 라이트박스 ---------- */
