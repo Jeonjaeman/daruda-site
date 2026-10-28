@@ -41,5 +41,5 @@
   --t-fast: 200ms;
 }
 @media (max-width: 767px) {
-  :root { --box-top: 22vh; --box-h: 60vh; --gutter: 20px; }
+  :root { --box-top: 21vh; --box-h: 56vh; --gutter: 20px; }
 }

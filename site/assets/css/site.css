@@ -168,6 +168,16 @@ figure { margin: 0; }
   .about-img { display: none; }
   .archive-menu { grid-template-columns: 1fr; grid-template-rows: repeat(3, 1fr); }
   .consult-form .field { grid-template-columns: 1fr; gap: 3px; }
+  /* 모바일: 박스 안을 한 번에 스크롤 (칸별 중첩 스크롤 없음) */
+  .box-in { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .contact { display: block; }
+  .consult-form { overflow: visible; }
+  .privacy { margin-top: 18px; }
+  .privacy-body { max-height: 200px; }
+  .contact-info { margin-top: 16px; flex-direction: column; }
+  .press { display: block; }
+  .press-detail { margin-top: 16px; overflow: visible; }
+  .about { display: block; }
   .grid-works, .grid-proc { grid-template-columns: repeat(2, 1fr); }
   .project { grid-template-columns: 1fr; }
   .project-main { position: static; }
