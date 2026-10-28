@@ -186,3 +186,6 @@ figure { margin: 0; }
   .bar { padding: 20px var(--gutter) 16px; }
   .logo-sm, .bar-cat { font-size: 18px; }
 }
+
+/* 공사예정일: 달력 버튼을 날짜 글자 바로 옆에 (10/28 요청) */
+.consult-form input[type=date] { width: auto !important; min-width: 9.5em; justify-self: start; }
